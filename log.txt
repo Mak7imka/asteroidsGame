@@ -1,0 +1,60 @@
+maksim@192 asteroidsGame % make clean && make                   
+rm -rf obj endgame.a
+mkdir -p obj
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/background.c -o obj/background.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/bee.c -o obj/bee.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/cleanup.c -o obj/cleanup.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/coin.c -o obj/coin.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/collision.c -o obj/collision.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/control_frame.c -o obj/control_frame.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/endgame.c -o obj/endgame.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/game.c -o obj/game.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/game_loop.c -o obj/game_loop.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/game_over.c -o obj/game_over.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/gameobject.c -o obj/gameobject.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/handle.c -o obj/handle.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/handle_events.c -o obj/handle_events.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/load_texture.c -o obj/load_texture.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/main.c -o obj/main.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/move_object.c -o obj/move_object.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/render_font.c -o obj/render_font.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/render_game.c -o obj/render_game.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/shoot.c -o obj/shoot.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/sprint.c -o obj/sprint.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/start_ui.c -o obj/start_ui.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/task.c -o obj/task.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/update_state.c -o obj/update_state.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -Iinc -I/opt/homebrew/include -c src/wrap_cordinates.c -o obj/wrap_cordinates.o
+ar rcs endgame.a  obj/background.o  obj/bee.o  obj/cleanup.o  obj/coin.o  obj/collision.o  obj/control_frame.o  obj/endgame.o  obj/game.o  obj/game_loop.o  obj/game_over.o  obj/gameobject.o  obj/handle.o  obj/handle_events.o  obj/load_texture.o  obj/main.o  obj/move_object.o  obj/render_font.o  obj/render_game.o  obj/shoot.o  obj/sprint.o  obj/start_ui.o  obj/task.o  obj/update_state.o  obj/wrap_cordinates.o
+clang -std=c11 -Wall -Wextra -Werror -Wpedantic -DDEBUG=0 -o endgame endgame.a -L/opt/homebrew/lib -lSDL2 -lSDL2_image -lSDL2_ttf -lm -ldl -lpthread
+maksim@192 asteroidsGame % ./endgame
+2026-06-09 15:53:24.330 endgame[73469:13158137] INFO: Hit sprint 1
+2026-06-09 15:53:25.711 endgame[73469:13158137] INFO: Collision bee with sprint detected
+2026-06-09 15:53:28.382 endgame[73469:13158137] INFO: Hit sprint 0
+2026-06-09 15:53:29.345 endgame[73469:13158137] INFO: Hit sprint 0
+2026-06-09 15:53:29.601 endgame[73469:13158137] INFO: Hit sprint 0
+2026-06-09 15:53:29.752 endgame[73469:13158137] INFO: Hit task 6
+2026-06-09 15:53:29.753 endgame[73469:13158137] INFO: Coin generated
+2026-06-09 15:53:31.121 endgame[73469:13158137] INFO: Hit sprint 2
+2026-06-09 15:53:31.189 endgame[73469:13158137] INFO: Collision bee with task detected
+2026-06-09 15:53:34.086 endgame[73469:13158137] INFO: Hit sprint 2
+2026-06-09 15:53:36.684 endgame[73469:13158137] INFO: Hit sprint 4
+2026-06-09 15:53:36.854 endgame[73469:13158137] INFO: Hit sprint 4
+2026-06-09 15:53:37.076 endgame[73469:13158137] INFO: Hit sprint 4
+2026-06-09 15:53:37.175 endgame[73469:13158137] INFO: Hit task 43
+2026-06-09 15:53:37.175 endgame[73469:13158137] INFO: Coin generated
+2026-06-09 15:53:37.378 endgame[73469:13158137] INFO: Hit task 52
+2026-06-09 15:53:37.645 endgame[73469:13158137] INFO: Hit task 50
+2026-06-09 15:53:38.442 endgame[73469:13158137] INFO: Hit task 49
+2026-06-09 15:53:38.442 endgame[73469:13158137] INFO: Coin generated
+2026-06-09 15:53:39.352 endgame[73469:13158137] INFO: Collision bee with coin detected
+2026-06-09 15:53:41.719 endgame[73469:13158137] INFO: Hit task 46
+2026-06-09 15:53:41.719 endgame[73469:13158137] INFO: Coin generated
+2026-06-09 15:53:42.463 endgame[73469:13158137] INFO: Hit task 45
+2026-06-09 15:53:42.463 endgame[73469:13158137] INFO: Coin generated
+2026-06-09 15:53:42.984 endgame[73469:13158137] INFO: Hit task 48
+2026-06-09 15:53:42.984 endgame[73469:13158137] INFO: Collision bee with coin detected
+2026-06-09 15:53:46.154 endgame[73469:13158137] INFO: Collision bee with coin detected
+2026-06-09 15:53:49.001 endgame[73469:13158137] INFO: Hit sprint 1
+2026-06-09 15:53:49.637 endgame[73469:13158137] INFO: Collision bee with sprint detected
+maksim@192 asteroidsGame % 
